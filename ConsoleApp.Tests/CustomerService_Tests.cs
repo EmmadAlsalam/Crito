@@ -14,11 +14,11 @@ namespace ConsoleApp.Tests
             // Arrange
             ICustomer customer = new Customer
             {
-                FirstName = "John",
-                LastName = "Doe",
+                FirstName = "Emmad",
+                LastName = "Alsalam",
                 PhoneNumber = "123456789",
-                Email = "john.doe@example.com",
-                Address = "123 Main St"
+                Email = "emmad@example.com",
+                Address = "Rullstenbacken"
             };
             ICustomerService customerService = new CustomerService();
 
@@ -42,7 +42,7 @@ namespace ConsoleApp.Tests
                 LastName = "Alsalam",
                 PhoneNumber = "123456789",
                 Email = "emmad@example.com",
-                Address = "Backgtan 34"
+                Address = "Rullstenbacken"
             };
             customerService.AddToList(customer);
 
