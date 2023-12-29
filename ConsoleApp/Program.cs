@@ -18,7 +18,7 @@ namespace ConsoleApp
             ICustomerService customerService = new CustomerService();
             var menuServices = new MenuServices(customerService);
 
-            // Kör användargränssnittet för att interagera med kunder
+            // Kör ConsoleApp
             menuServices.Run();
         }
     }

@@ -1,7 +1,4 @@
-﻿// ICustomerService.cs
-using System.Collections.Generic;
-
-namespace ConsoleApp.Interfaces
+﻿namespace ConsoleApp.Interfaces
 {
     /// <summary>
     /// Gränssnitt för hantering av kundrelaterad.

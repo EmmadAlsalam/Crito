@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "Id": 1,
+    "FirstName": "emmad",
+    "LastName": "alsalam",
+    "PhoneNumber": "5435",
+    "Email": "emmad",
+    "Address": "adadad"
+  },
+  {
+    "Id": 2,
+    "FirstName": "hong ",
+    "LastName": "hong",
+    "PhoneNumber": "sfsf",
+    "Email": "hong",
+    "Address": "askfhasf"
+  },
+  {
+    "Id": 3,
+    "FirstName": "ahadm",
+    "LastName": "lajdöj",
+    "PhoneNumber": "asfljnsf",
+    "Email": "ahmad",
+    "Address": "aöjfafsa"
+  }
+]

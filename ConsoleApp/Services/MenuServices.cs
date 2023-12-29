@@ -1,10 +1,11 @@
 ﻿using ConsoleApp.Interfaces;
+
 namespace ConsoleApp.Services
 {
     /// <summary>
     /// Hanterar användargränssnittet och interaktion med kunder.
     /// </summary>
-    internal class MenuServices
+    public class MenuServices
     {
         private ICustomerService customerService;
 
@@ -31,10 +32,14 @@ namespace ConsoleApp.Services
             {
                 Console.WriteLine("Välj en åtgärd:");
                 Console.WriteLine("1. Lägg till kund");
-                Console.WriteLine("2. Lista alla kunder");
+                Console.WriteLine("2. Visa listan på alla kunder");
                 Console.WriteLine("3. Visa detaljer om en kund");
                 Console.WriteLine("4. Ta bort kund");
-                Console.WriteLine("5. Avsluta");
+                Console.WriteLine("5. Avsluta och spara ");
+                Console.WriteLine("-------------------------");
+
+
+
 
                 Console.Write("Ange ditt val (1-5): ");
                 string choice = Console.ReadLine();
@@ -55,6 +60,9 @@ namespace ConsoleApp.Services
                         Console.Write("Ange adress: ");
                         string address = Console.ReadLine();
 
+                        Console.WriteLine("Ny kund lagt i listan ");
+                        Console.WriteLine("-------------------------");
+
                         customerService.AddToList(firstName, lastName, phoneNumber, email, address);
                         break;
 
@@ -63,11 +71,22 @@ namespace ConsoleApp.Services
 
                         // Lista alla kunder
                         var allCustomers = customerService.GetAllFromList();
-                        foreach (var customer in allCustomers)
+                        if (allCustomers.Any())
                         {
-                            Console.WriteLine($"{customer.FirstName} {customer.LastName} - {customer.Email}");
+                            Console.WriteLine("Lista över alla kunder:");
+                            foreach (var customer in allCustomers)
+                            {
+                                Console.WriteLine($"{customer.FirstName} {customer.LastName}");
+                                Console.WriteLine($"E-post: {customer.Email}");
+                                Console.WriteLine("-------------------------");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Inga kunder hittades.");
                         }
                         break;
+
 
                     case "3":
                         Console.Clear();
@@ -82,6 +101,11 @@ namespace ConsoleApp.Services
                             Console.WriteLine($"Telefonnummer: {specificCustomer.PhoneNumber}");
                             Console.WriteLine($"E-postadress: {specificCustomer.Email}");
                             Console.WriteLine($"Adress: {specificCustomer.Address}");
+
+
+
+
+                            Console.WriteLine("-------------------------");
                         }
                         else
                         {
@@ -99,6 +123,8 @@ namespace ConsoleApp.Services
                         if (removed)
                         {
                             Console.WriteLine("Kund borttagen.");
+
+                            Console.WriteLine("-------------------------");
                         }
                         else
                         {
@@ -109,6 +135,8 @@ namespace ConsoleApp.Services
                     case "5":
                         // Avsluta programmet
                         Environment.Exit(0);
+                        Console.WriteLine("Nu avslutar programet ");
+
                         break;
 
                     default:
