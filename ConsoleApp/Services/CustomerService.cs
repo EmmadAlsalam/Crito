@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-
-using ConsoleApp.Interfaces;
+﻿using ConsoleApp.Interfaces;
 using ConsoleApp.Models;
 using Newtonsoft.Json;
+using System.Diagnostics;
+
 
 namespace ConsoleApp.Services
 {
     public class CustomerService : ICustomerService
     {
         private readonly List<Customer> _customerList = new List<Customer>();
-        private readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "contacts.json");
+        private readonly string _filePath = @"c:\projects\Crito\Customer.json";
+
+        public string FilePath => _filePath; // Korrigera FilePath-egenskapen
 
         public bool AddToList(string firstName, string lastName, string phoneNumber, string email, string address)
         {
@@ -44,10 +44,7 @@ namespace ConsoleApp.Services
         {
             try
             {
-                if (_customerList.Count == 0)
-                {
-                    LoadFromFile();
-                }
+                LoadFromFile(); // Flytta laddningen av filen här
 
                 return _customerList.Cast<ICustomer>();
             }
@@ -62,10 +59,7 @@ namespace ConsoleApp.Services
         {
             try
             {
-                if (_customerList.Count == 0)
-                {
-                    LoadFromFile();
-                }
+                LoadFromFile();
 
                 return _customerList.Find(c => c.Email == email);
             }
@@ -80,10 +74,7 @@ namespace ConsoleApp.Services
         {
             try
             {
-                if (_customerList.Count == 0)
-                {
-                    LoadFromFile();
-                }
+                LoadFromFile();
 
                 Customer? customerToRemove = _customerList.Find(c => c.Email == email);
                 if (customerToRemove != null)
@@ -135,10 +126,7 @@ namespace ConsoleApp.Services
         {
             try
             {
-                if (_customerList.Count == 0)
-                {
-                    LoadFromFile();
-                }
+                LoadFromFile();
 
                 customer.Id = _customerList.Count + 1;
                 _customerList.Add((Customer)customer);

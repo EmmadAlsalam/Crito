@@ -1,5 +1,4 @@
-﻿// Customer.cs
-using ConsoleApp.Interfaces;
+﻿using ConsoleApp.Interfaces;
 
 namespace ConsoleApp.Models
 {
